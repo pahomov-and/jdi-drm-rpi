@@ -49,9 +49,16 @@ static void sharp_memory_shutdown(struct spi_device *spi)
 	sharp_memory_remove(spi);
 }
 
+static const struct of_device_id sharp_memory_of_match[] = {
+	{ .compatible = "sharp-drm" },
+	{ }
+};
+MODULE_DEVICE_TABLE(of, sharp_memory_of_match);
+
 static struct spi_driver sharp_memory_spi_driver = {
 	.driver = {
 		.name = "sharp-drm",
+		.of_match_table = sharp_memory_of_match,
 	},
 	.probe = sharp_memory_probe,
 	.remove = sharp_memory_remove,
