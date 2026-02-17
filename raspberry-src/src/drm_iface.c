@@ -990,6 +990,7 @@ static const uint32_t sharp_memory_formats[] = {
 
 static const struct drm_display_mode sharp_memory_ls027b7dh01_mode = {
 	DRM_SIMPLE_MODE(400, 240, 59, 35),
+	.clock = 5760, /* 60 Hz: 400 * 240 * 60 / 1000 */
 };
 
 DEFINE_DRM_GEM_DMA_FOPS(sharp_memory_fops);
